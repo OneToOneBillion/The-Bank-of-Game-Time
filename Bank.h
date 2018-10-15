@@ -7,7 +7,7 @@ class Bank
 {
 	bool SavingTime();
 	bool BorrowGT(int LengthOfTime);
-
+	bool ExchangeTime();
 
 
 private:
@@ -21,7 +21,7 @@ bool Bank::SavingTime()
 	return true;
 }
 
-bool Bank::BorrowGT(int LengthOfTime)
+bool Bank::BorrowGT(int LengthOfTime) 
 {
 	if (LengthOfTime > info.GetVault())
 	{
@@ -30,6 +30,13 @@ bool Bank::BorrowGT(int LengthOfTime)
 	}
 	info.SetRGT(LengthOfTime + info.GetGRT());
 }
+ 
+bool Bank::ExchangeTime()
+{
+	info.SetRGT(info.GetRGT() + info.GetDST());
 
+	return true;
+
+}
 
 #endif // !_Bank_H_
