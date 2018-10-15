@@ -19,6 +19,8 @@ public:
 	PersonalInfo();
 	virtual ~PersonalInfo();
 
+	void InitDGT(int dgt);
+
 	int GetDST();    //得到每天已经学习时间
 	int GetRGT();    //得到今天剩余游戏时间
 	int GetTST();    //得到从一开始使用此软件总共学习的时间
@@ -35,3 +37,38 @@ protected:
 
 #endif // !_PersonalInfo_H_
 
+void PersonalInfo::InitDGT(int dgt) {
+	DailyGameTime = dgt;
+}
+
+int PersonalInfo::GetDST() {
+	return DailyStudyTime;
+}
+
+int PersonalInfo::GetRGT() {
+	return RemainingGameTime;
+}
+
+int PersonalInfo::GetTST() {
+	return TotalStudyTime;
+}
+
+int PersonalInfo::GetTGT() {
+	return TotalGameTime;
+}
+
+int PersonalInfo::GetVault() {
+	return Vault;
+}
+
+int PersonalInfo::GetFT() {
+	return FightingTime;
+}
+
+int PersonalInfo::GetDGT() {
+	return DailyGameTime;
+}
+
+void PersonalInfo::AddDGTtoRGT() {
+	RemainingGameTime += DailyGameTime;
+}
