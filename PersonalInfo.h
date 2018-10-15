@@ -35,8 +35,6 @@ protected:
 
 };
 
-#endif // !_PersonalInfo_H_
-
 void PersonalInfo::InitDGT(int dgt) {
 	DailyGameTime = dgt;
 }
@@ -72,3 +70,5 @@ int PersonalInfo::GetDGT() {
 void PersonalInfo::AddDGTtoRGT() {
 	RemainingGameTime += DailyGameTime;
 }
+
+#endif // !_PersonalInfo_H_
