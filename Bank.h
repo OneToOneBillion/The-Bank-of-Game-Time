@@ -8,11 +8,11 @@ class Bank
 public:
 	Bank();
 	~Bank();
-	bool SavingTime();					//±£´æÊ±¼äµ½Óà¶î±¦
-	bool BorrowGT(int LengthOfTime);	//´ÓÓà¶î±¦½è´ûÊ±¼ä
-	bool ExchangeTime();				//×ª»»Ê±¼ä£¬Ã¿ÌìÑ§Ï°Ê±¼ä×ª»»ÎªÓÎÏ·Ê±¼ä
-	void StartStudy();					//¿ªÊ¼Ñ§Ï°
-	void EndStudy();					//½áÊøÑ§Ï°
+	bool SavingTime();					//保存时间
+	bool BorrowGT(int LengthOfTime);	//Borrow 
+	bool ExchangeTime();				
+	void StartStudy();					
+	void EndStudy();					
 
 private:
 	PersonalInfo info;
@@ -48,12 +48,12 @@ void Bank::StartStudy()
 
 void EndStudy()
 {
-	t.Stop();									//Í£Ö¹¼ÆÊ±
-	long int StudyTime=t.GetClickTime();		//µÃµ½³ÖÐøÊ±¼ä
-	info.SetFightingTime(StudyTime);			//ÉèÖÃ±¾´ÎÑ§Ï°Ê±¼ä
-	info.SetDST(info.GetDST()+StudyTime);		//ÉèÖÃÃ¿ÌìÒÑ¾­Ñ§Ï°Ê±¼ä
-	ExchangeTime();								//ÊµÊ±×ª»¯ÓÎÏ·Ê±¼ä
-	info.SetTST(info.GetTST() + StudyTime);		//ÉèÖÃ×ÜÑ§Ï°Ê±¼ä
+	t.Stop();									
+	long int StudyTime=t.GetClickTime();		
+	info.SetFightingTime(StudyTime);			
+	info.SetDST(info.GetDST()+StudyTime);		
+	ExchangeTime();								
+	info.SetTST(info.GetTST() + StudyTime);		
 
 }
 #endif // !_Bank_H_
