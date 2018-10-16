@@ -1,74 +1,111 @@
 #ifndef _PersonalInfo_H_
 #define _PersonalInfo_H_
-#include<vector>
+
 class PersonalInfo {
+public:
+	PersonalInfo() {    //初始化所有PersonalInfo的变量
+		DailyStudyTime = 0;
+		RemainingGameTime = 0;
+		TotalStudyTime = 0;
+		TotalGameTime = 0;
+		Vault = 0;
+		DailyGameTime = 0;
+		DailyStudyTime = 0;
+		OnceStudyTime = 0;
+		OnceGameTime = 0;
+	}
+	virtual ~PersonalInfo();
+
+	//初始化界面用到的成员函数
+	void InitDGT(long int dgt);
+
+	long int GetDST();
+	long int GetRGT();
+	long int GetTST();
+	long int GetTGT();
+	long int GetVault();
+	long int GetOST();
+	long int GetOGT();
+	long int GetDGT();
+	//改变变量
+	void SetRGT(long int time);
+	void SetDST(long int time);
+	void SetTST(long int time);
+	void SetTGT(long int time);
+	void SetDGT(long int time);
+	void SetDST(long int time);
+	void SetOST(long int time);
+	void SetOGT(long int time);
+	void SetVault(long int vault);
+
+	void ClearRGT();    //将RemainingGameTime清零
+
 private:
 	long int DailyStudyTime;    //每天已经学习时间
 	long int RemainingGameTime;    //今天剩余游戏时间
-
 	long int TotalStudyTime;    //从一开始使用此软件总共学习的时间
-	long int TotalGameTime;     //从一开始使用此软件总共游戏的时间
-
+	long int TotalGameTime;    //从一开始使用此软件总共游戏的时间
 	long int Vault;    //存储的游戏时间（游戏时间余额宝）
-
-	vector<long int> FightingTime;    //本次学习时间
-
 	long int DailyGameTime;    //设置的每天增加的游戏时间
-
-public:
-	PersonalInfo();
-	virtual ~PersonalInfo();
-
-	void InitDGT(int dgt);
-
-	long int GetDST();    //得到每天已经学习时间
-	long int GetRGT();    //得到今天剩余游戏时间
-	long int GetTST();    //得到从一开始使用此软件总共学习的时间
-	long int GetTGT();    //得到从一开始使用此软件总共游戏的时间
-	long int GetVault();    //得到已存储的游戏时间
-	long int GetFT();    //得到本次学习时间
-	long int GetDGT();    //得到设定的每天增加的游戏时间
-
-	void AddDGTtoRGT();
-
-protected:
-
+	long int OnceStudyTime;    //本次学习时间
+	long int OnceGameTime;    //本次游戏时间
 };
 
-void PersonalInfo::InitDGT(int dgt) {
+void PersonalInfo::InitDGT(long int dgt) {
 	DailyGameTime = dgt;
 }
 
-int PersonalInfo::GetDST() {
+long int PersonalInfo::GetDST() {
 	return DailyStudyTime;
 }
-
-int PersonalInfo::GetRGT() {
+long int PersonalInfo::GetRGT() {
 	return RemainingGameTime;
 }
-
-int PersonalInfo::GetTST() {
+long int PersonalInfo::GetTST() {
 	return TotalStudyTime;
 }
-
-int PersonalInfo::GetTGT() {
+long int PersonalInfo::GetTGT() {
 	return TotalGameTime;
 }
-
-int PersonalInfo::GetVault() {
+long int PersonalInfo::GetVault() {
 	return Vault;
 }
-
-int PersonalInfo::GetFT() {
-	return FightingTime;
+long int PersonalInfo::GetOST() {
+	return OnceStudyTime;
 }
-
-int PersonalInfo::GetDGT() {
+long int PersonalInfo::GetOGT() {
+	return OnceGameTime;
+}
+long int PersonalInfo::GetDGT() {
 	return DailyGameTime;
 }
 
-void PersonalInfo::AddDGTtoRGT() {
-	RemainingGameTime += DailyGameTime;
+void PersonalInfo::SetRGT(long int time) {
+	RemainingGameTime = time;
+}
+void PersonalInfo::SetDST(long int time) {
+	DailyStudyTime = time;
+}
+void PersonalInfo::SetDGT(long int time) {
+	DailyGameTime = time;
+}
+void PersonalInfo::SetTST(long int time) {
+	TotalStudyTime = time;
+}
+void PersonalInfo::SetTGT(long int time) {
+	TotalGameTime = time;
+}
+void PersonalInfo::SetOGT(long int time) {
+	OnceGameTime = time;
+}
+void PersonalInfo::SetOST(long int time) {
+	OnceStudyTime = time;
+}
+void PersonalInfo::SetVault(long int vault) {
+	Vault = vault;
 }
 
+void PersonalInfo::ClearRGT() {
+	RemainingGameTime = 0;
+}
 #endif // !_PersonalInfo_H_
