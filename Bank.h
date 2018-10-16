@@ -8,11 +8,11 @@ class Bank
 public:
 	Bank();
 	~Bank();
-	bool SavingTime();					//保存时间到余额宝
-	bool BorrowGT(int LengthOfTime);	//从余额宝借贷时间
-	bool ExchangeTime();				//转换时间，每天学习时间转换为游戏时间
-	void StartStudy();					//开始学习
-	void EndStudy();					//结束学习
+	bool SavingTime();					//卤拢麓忙脢卤录盲碌陆脫脿露卯卤娄
+	bool BorrowGT(int LengthOfTime);	//麓脫脫脿露卯卤娄陆猫麓没脢卤录盲
+	bool ExchangeTime();				//脳陋禄禄脢卤录盲拢卢脙驴脤矛脩搂脧掳脢卤录盲脳陋禄禄脦陋脫脦脧路脢卤录盲
+	void StartStudy();					//驴陋脢录脩搂脧掳
+	void EndStudy();					//陆谩脢酶脩搂脧掳
 
 private:
 	PersonalInfo info;
@@ -30,7 +30,6 @@ bool Bank::BorrowGT(int LengthOfTime)
 {
 	if (LengthOfTime > info.GetVault())
 	{
-		//提示您当前的余额
 		return false;
 	}
 	info.SetRGT(LengthOfTime + info.GetGRT());
@@ -49,12 +48,12 @@ void Bank::StartStudy()
 
 void EndStudy()
 {
-	t.Stop();									//停止计时
-	long int StudyTime=t.GetClickTime();		//得到持续时间
-	info.SetFightingTime(StudyTime);			//设置本次学习时间
-	info.SetDST(info.GetDST()+StudyTime);		//设置每天已经学习时间
-	ExchangeTime();								//实时转化游戏时间
-	info.SetTST(info.GetTST() + StudyTime);		//设置总学习时间
+	t.Stop();									//脥拢脰鹿录脝脢卤
+	long int StudyTime=t.GetClickTime();		//碌脙碌陆鲁脰脨酶脢卤录盲
+	info.SetFightingTime(StudyTime);			//脡猫脰脙卤戮麓脦脩搂脧掳脢卤录盲
+	info.SetDST(info.GetDST()+StudyTime);		//脡猫脰脙脙驴脤矛脪脩戮颅脩搂脧掳脢卤录盲
+	ExchangeTime();								//脢碌脢卤脳陋禄炉脫脦脧路脢卤录盲
+	info.SetTST(info.GetTST() + StudyTime);		//脡猫脰脙脳脺脩搂脧掳脢卤录盲
 
 }
 #endif // !_Bank_H_
