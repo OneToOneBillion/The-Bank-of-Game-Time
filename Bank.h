@@ -34,9 +34,7 @@ bool Bank::BorrowGT(int LengthOfTime)
 bool Bank::ExchangeTime()
 {
 	info.SetRGT(info.GetRGT() + info.GetDST());
-
 	return true;
-
 }
 
 #endif // !_Bank_H_
