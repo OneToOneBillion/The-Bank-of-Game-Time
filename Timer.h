@@ -11,17 +11,17 @@ public:
 	bool GetIsStope(){return IsStop;}
 	long int GetStartTime(){return StartTime;}
 	long int GetPauseTime(){return PauseTime;}
-	long int GetClickTime(){return time(0)-StartTime;}
+	long int GetClickTime(){return time(0)-StartTime;}				//得到时间差
 	void Start();
 	void Pause();
 	void Stop();	
 	void show();	
 private:
 	//保存开始和暂停时刻的时间
-	long int StartTime;
-	long int PauseTime;
-	bool IsPause;
-	bool IsStop;
+	long int StartTime;							//开始时间
+	long int PauseTime;							//暂停时间
+	bool IsPause;								//是否暂停
+	bool IsStop;								//是否停止
 };
 
 Timer::Timer()
@@ -33,12 +33,12 @@ Timer::Timer()
 
 void Timer::Start()
 {
-	if(IsStop)
+	if(IsStop)				//如果处于停止状态，重置开始时间，把IsStop置false
 	{
 		StartTime=time(0);
 		IsStop=false;
 	}
-	else if(IsPause)
+	else if(IsPause)			//如果处于暂停状态，更新StartTime
 	{
 		IsPause=false;
 		StartTime+=time(0)-PauseTime;
@@ -57,24 +57,24 @@ void Timer::Pause() //暂停
 	}
 }
 
-void Timer::Stop()
+void Timer::Stop()	//停止
 {
-	if(IsStop)
+	if(IsStop)			//如果不是停止状态
 	{
 		return;
 	}
-	else if(IsPause)
+	else if(IsPause)		//如果已经是停止状态
 	{
 		IsPause=false;
 		IsStop=true;
 	}
-	else if(!IsStop)
+	else if(!IsStop)		//如果已经停止了
 	{
 		IsStop=true;
 	}
 }
 
-void Timer::show()
+void Timer::show()			//输出
 {
 	long int t=time(0)-StartTime;
 	cout<<t/3600<<":"<<t/60<<":"<<t%60<<endl;
