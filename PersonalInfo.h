@@ -59,25 +59,25 @@ public:
 	}
 
 	void ShowListOfDST() {
-		for (auto i = ListOfDST; i > 0; i--) {
+		for (auto i = ListOfDST.size(); i > 0; i--) {
 			cout << ListOfDST[i - 1];
 		}
 	}
 
 	void ShowListOfDGT() {
-		for (auto i = ListOfDGT; i > 0; i--) {
+		for (auto i = ListOfDGT.size(); i > 0; i--) {
 			cout << ListOfDGT[i - 1];
 		}
 	}
 
 	void ShowListOfOST() {
-		for (auto i = ListOfOST; i > 0; i--) {
+		for (auto i = ListOfOST.size(); i > 0; i--) {
 			cout << ListOfOST[i - 1];
 		}
 	}
 
 	void ShowListOfOGT() {
-		for (auto i = ListOfOGT; i > 0; i--) {
+		for (auto i = ListOfOGT.size(); i > 0; i--) {
 			cout << ListOfOGT[i - 1];
 		}
 	}
