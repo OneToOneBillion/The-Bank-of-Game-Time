@@ -78,7 +78,7 @@ void Bank::StartGame()
 void Bank::EndGame()
 {
 	c.Stop();
-	long int GameTime = c.GetClockTime();
+	long int GameTime = c.Getcounttime()-1;
 	info.SetRGT(info.GetDGT()-GameTime);
 	info.SetTGT(info.GetTGT() + GameTime);
 }

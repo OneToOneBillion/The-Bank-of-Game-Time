@@ -51,7 +51,6 @@ private:
 	long int PauseTime;
 	int hour, minute, second;
 	long int counttime;
-	PersonalInfo info;
 };
 
 Clock::~Clock()
