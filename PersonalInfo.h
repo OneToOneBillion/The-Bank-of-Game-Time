@@ -1,6 +1,8 @@
 #ifndef _PersonalInfo_H_
 #define _PersonalInfo_H_
 
+#include <vector>
+
 class PersonalInfo {
 public:
 	PersonalInfo() {    //初始化所有PersonalInfo的变量
@@ -40,6 +42,46 @@ public:
 
 	void ClearRGT();    //将RemainingGameTime清零
 
+	void PushInListOfDST(long int time) {
+		ListOfDST.push_back(time);
+	}
+
+	void PushInListOfDGT(long int time) {
+		ListOfDGT.push_back(time);
+	}
+
+	void PushInListOfOST(long int time) {
+		ListOfOST.push_back(time);
+	}
+
+	void PushInListOfOGT(long int time) {
+		ListOfOGT.push_back(time);
+	}
+
+	void ShowListOfDST() {
+		for (auto i = ListOfDST; i > 0; i--) {
+			cout << ListOfDST[i - 1];
+		}
+	}
+
+	void ShowListOfDGT() {
+		for (auto i = ListOfDGT; i > 0; i--) {
+			cout << ListOfDGT[i - 1];
+		}
+	}
+
+	void ShowListOfOST() {
+		for (auto i = ListOfOST; i > 0; i--) {
+			cout << ListOfOST[i - 1];
+		}
+	}
+
+	void ShowListOfOGT() {
+		for (auto i = ListOfOGT; i > 0; i--) {
+			cout << ListOfOGT[i - 1];
+		}
+	}
+
 private:
 	long int DailyStudyTime;    //每天已经学习时间
 	long int RemainingGameTime;    //今天剩余游戏时间
@@ -49,6 +91,10 @@ private:
 	long int DailyGameTime;    //设置的每天增加的游戏时间
 	long int OnceStudyTime;    //本次学习时间
 	long int OnceGameTime;    //本次游戏时间
+	vector<long int> ListOfDST;    //存储DailyStudyTime的容器
+	vector<long int> ListOfDGT;    //存储DailyGameTime的容器
+	vector<long int> ListOfOST;    //存储OnceStudyTime的容器
+	vector<long int> ListOfOGT;    //存储OnceGameTime的容器
 };
 
 void PersonalInfo::InitDGT(long int dgt) {
