@@ -11,7 +11,7 @@ public:
 	~Bank();
 	bool SavingTime();					//保存时间
 	bool BorrowGT(int LengthOfTime);	//Borrow 
-	bool ExchangeTime();				
+	bool ExchangeTime();				//借贷时间
 	void StartStudy();					
 	void EndStudy();
 	void StartGame();
@@ -19,9 +19,18 @@ public:
 
 private:
 	PersonalInfo info;
-	Timer t;
+	MyTimer t;
 	Clock c;
 };
+
+Bank::Bank()
+{
+
+}
+Bank::~Bank()
+{
+
+}
 
 bool Bank::SavingTime()
 {
@@ -36,7 +45,7 @@ bool Bank::BorrowGT(int LengthOfTime)
 	{
 		return false;
 	}
-	info.SetRGT(LengthOfTime + info.GetGRT());
+	info.SetRGT(LengthOfTime + info.GetRGT());
 }
  
 bool Bank::ExchangeTime()
@@ -54,7 +63,7 @@ void Bank::EndStudy()
 {
 	t.Stop();									
 	long int StudyTime=t.GetClickTime();		
-	info.SetFightingTime(StudyTime);			
+	info.SetOST(StudyTime);			
 	info.SetDST(info.GetDST()+StudyTime);		
 	ExchangeTime();								
 	info.SetTST(info.GetTST() + StudyTime);		
@@ -63,7 +72,7 @@ void Bank::EndStudy()
 
 void Bank::StartGame()
 {
-	c.Start();
+	c.Start(c);
 }
 
 void Bank::EndGame()
@@ -71,7 +80,6 @@ void Bank::EndGame()
 	c.Stop();
 	long int GameTime = c.GetClockTime();
 	info.SetRGT(info.GetDGT()-GameTime);
-	info.SetTGT(info.GetTGT()+GameTime)
-
+	info.SetTGT(info.GetTGT() + GameTime);
 }
 #endif // !_Bank_H_

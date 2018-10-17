@@ -3,10 +3,11 @@
 
 using namespace std;
 
-class Timer
+class MyTimer
 {
 public:
-	Timer();
+	MyTimer();
+	~MyTimer();
 	bool GetIsPause(){return IsPause;}
 	bool GetIsStope(){return IsStop;}
 	long int GetStartTime(){return StartTime;}
@@ -24,14 +25,14 @@ private:
 	bool IsStop;								//是否停止
 };
 
-Timer::Timer()
+MyTimer::MyTimer()
 {
 	IsPause=false;
 	IsStop=true;
 	PauseTime=0;
 }
 
-void Timer::Start()
+void MyTimer::Start()
 {
 	if(IsStop)				//如果处于停止状态，重置开始时间，把IsStop置false
 	{
@@ -46,7 +47,7 @@ void Timer::Start()
 }
 
 
-void Timer::Pause() //暂停 
+void MyTimer::Pause() //暂停 
 {
 	if(IsStop||IsPause) //如果处于停止/暂停状态,此动作不做任何处理，直接返回 
 		return; 
@@ -57,7 +58,7 @@ void Timer::Pause() //暂停
 	}
 }
 
-void Timer::Stop()	//停止
+void MyTimer::Stop()	//停止
 {
 	if(IsStop)			//如果不是停止状态
 	{
@@ -74,7 +75,7 @@ void Timer::Stop()	//停止
 	}
 }
 
-void Timer::show()			//输出
+void MyTimer::show()			//输出
 {
 	long int t=time(0)-StartTime;
 	cout<<t/3600<<":"<<t/60<<":"<<t%60<<endl;

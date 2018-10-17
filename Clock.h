@@ -4,7 +4,6 @@
 
 #include <iostream>
 #include <windows.h>
-#include "PersonalInfo.h"
 #include "time.h"
 
 using namespace std;
@@ -18,22 +17,9 @@ public:
 	{ return IsPause; }
 	bool GetIsStop()
 	{ return IsStop; }
-<<<<<<< HEAD
-	int GetStartTime()
-	{
-		return StartTime;
+	void SetDGT(int dgt) {
+		set(dgt / 3600, dgt / 60,dgt % 60);
 	}
-	int GetPauseTime()
-	{
-		return PauseTime;
-	}
-	int GetClockTime()
-	{
-		return time(0) - StartTime;
-	}
-	void set(int dgt);
-	void Start();
-=======
 	void SetIsPause(bool m)
 	{IsPause = m;}
 	void SetIsStop(bool m)
@@ -46,7 +32,7 @@ public:
 	{return second;}
 	void set(int h, int m, int s);
 	void Start(Clock m);
->>>>>>> 9470b85c13a722ffe3ebcd417828149bbbc5bea1
+
 	void Pause();
 	void Stop();
 	void show();
@@ -72,21 +58,11 @@ void Clock::Start(Clock clock)
 {
 	if (clock.GetIsStop())
 	{
-<<<<<<< HEAD
-		StartTime = time(0);
-		IsStop = false;
-=======
 		 clock.SetIsStop(false);
->>>>>>> 9470b85c13a722ffe3ebcd417828149bbbc5bea1
 	}
 	 if (clock.GetIsPause())
 	{
-<<<<<<< HEAD
-		IsPause = false;
-		StartTime += time(0) - PauseTime;
-=======
 		 clock.SetIsPause(false);
->>>>>>> 9470b85c13a722ffe3ebcd417828149bbbc5bea1
 	}
 	while (!clock.GetIsStop())
 	{
@@ -154,17 +130,16 @@ void Clock::Stop()
 		IsStop = true;
 	}
 }
-void Clock::set(int dgt)
-{
-	dgt = info.GetDGT();
-	hour = dgt/3600;
-	minute = dgt%60;
-	second = dgt%60;
-}
 
 void Clock::show()
 {
 	cout << hour << ":" << minute << ":" << second << endl;
 }
 
+void Clock::set(int h, int m, int s)
+{
+	hour = h;
+	minute = m;
+	second = s;
+}
 #endif
