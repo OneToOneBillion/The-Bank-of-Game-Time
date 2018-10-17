@@ -4,6 +4,8 @@
 
 #include <iostream>
 #include <windows.h>
+#include "PersonalInfo.h"
+#include "time.h"
 
 using namespace std;
 
@@ -16,7 +18,19 @@ public:
 	{ return IsPause; }
 	bool GetIsStop()
 	{ return IsStop; }
-	void set(int h, int m, int s);
+	int GetStartTime()
+	{
+		return StartTime;
+	}
+	int GetPauseTime()
+	{
+		return PauseTime;
+	}
+	int GetClockTime()
+	{
+		return time(0) - StartTime;
+	}
+	void set(int dgt);
 	void Start();
 	void Pause();
 	void Stop();
@@ -24,7 +38,10 @@ public:
 private:
 	bool IsPause;
 	bool IsStop;
+	long int StartTime;
+	long int PauseTime;
 	int hour, minute, second;
+	PersonalInfo info;
 };
 
 Clock::~Clock()
@@ -40,13 +57,13 @@ void Clock::Start()
 {
 	if (IsStop)
 	{
-		 
+		StartTime = time(0);
 		IsStop = false;
 	}
 	else if (IsPause)
 	{
 		IsPause = false;
-		 
+		StartTime += time(0) - PauseTime;
 	}
 }
 
@@ -58,7 +75,7 @@ void Clock::Pause()
 	else    
 	{
 		IsPause = true;
-		 
+		PauseTime = time(0);
 	}
 }
 
@@ -78,11 +95,12 @@ void Clock::Stop()
 		IsStop = true;
 	}
 }
-void Clock::set(int h, int m, int s)
+void Clock::set(int dgt)
 {
-	hour = h;
-	minute = m;
-	second = s;
+	dgt = info.GetDGT();
+	hour = dgt/3600;
+	minute = dgt%60;
+	second = dgt%60;
 }
 
 void Clock::show()

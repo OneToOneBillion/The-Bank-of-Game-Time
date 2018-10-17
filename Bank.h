@@ -2,6 +2,7 @@
 #define _Bank_H_
 #include"PersonalInfo.h"
 #include"Timer.h"
+#include"Clock.h"
 
 class Bank
 {
@@ -12,11 +13,14 @@ public:
 	bool BorrowGT(int LengthOfTime);	//Borrow 
 	bool ExchangeTime();				
 	void StartStudy();					
-	void EndStudy();					
+	void EndStudy();
+	void StartGame();
+	void EndGame();
 
 private:
 	PersonalInfo info;
 	Timer t;
+	Clock c;
 };
 
 bool Bank::SavingTime()
@@ -46,7 +50,7 @@ void Bank::StartStudy()
 	t.Start();
 }
 
-void EndStudy()
+void Bank::EndStudy()
 {
 	t.Stop();									
 	long int StudyTime=t.GetClickTime();		
@@ -54,6 +58,20 @@ void EndStudy()
 	info.SetDST(info.GetDST()+StudyTime);		
 	ExchangeTime();								
 	info.SetTST(info.GetTST() + StudyTime);		
+
+}
+
+void Bank::StartGame()
+{
+	c.Start();
+}
+
+void Bank::EndGame()
+{
+	c.Stop();
+	long int GameTime = c.GetClockTime();
+	info.SetRGT(info.GetDGT()-GameTime);
+	info.SetTGT(info.GetTGT()+GameTime)
 
 }
 #endif // !_Bank_H_
