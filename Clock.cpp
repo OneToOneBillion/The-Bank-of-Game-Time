@@ -23,7 +23,6 @@ void main()
 		countdown.Start(countdown);
 
 	}
-		
 		system("pause");
 	}
 
