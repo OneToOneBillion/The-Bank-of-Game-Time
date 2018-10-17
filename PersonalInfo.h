@@ -100,6 +100,11 @@ private:
 	vector<long int> ListOfOGT;    //´æ´¢OnceGameTimeµÄÈÝÆ÷
 };
 
+PersonalInfo::~PersonalInfo()
+{
+
+}
+
 void PersonalInfo::InitDGT(long int dgt) {
 	DailyGameTime = dgt;
 }

@@ -32,6 +32,10 @@ MyTimer::MyTimer()
 	PauseTime=0;
 }
 
+MyTimer::~MyTimer()
+{
+
+}
 void MyTimer::Start()
 {
 	if(IsStop)				//如果处于停止状态，重置开始时间，把IsStop置false
