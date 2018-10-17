@@ -30,14 +30,6 @@ public:
 	{	return minute;}
 	int Getsecond()
 	{return second;}
-	long int Getcounttime()
-	{
-		return counttime;
-	};
-	void Setcounttime(long int counttime1)
-	{
-		counttime = counttime1;
-	}
 	void set(int h, int m, int s);
 	void Start(Clock m);
 
@@ -50,10 +42,6 @@ private:
 	long int StartTime;
 	long int PauseTime;
 	int hour, minute, second;
-<<<<<<< HEAD
-=======
-	long int counttime;
->>>>>>> 879736050cdad422206405f8bd396824671dfe4a
 };
 
 Clock::~Clock()
@@ -84,8 +72,6 @@ void Clock::Start(Clock clock)
 			clock.show();
 			Sleep(1000);
 			system("cls");
-			long int counttime1=clock.Getcounttime()+1;
-			clock.Setcounttime(counttime1);
 			int s1 = clock.Getsecond() - 1;
 			clock.set(clock.Gethour(),clock.Getminute(),s1);
 			if (s1 == -1)
@@ -102,7 +88,6 @@ void Clock::Start(Clock clock)
 					{
 						clock.Stop();
 						cout << "time up!" << endl;
-						cout << clock.Getcounttime()-1 << endl;
 						break;
 					}
 				}

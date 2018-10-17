@@ -46,6 +46,7 @@ bool Bank::BorrowGT(int LengthOfTime)
 		return false;
 	}
 	info.SetRGT(LengthOfTime + info.GetRGT());
+	return true;
 }
  
 bool Bank::ExchangeTime()
@@ -78,8 +79,8 @@ void Bank::StartGame()
 void Bank::EndGame()
 {
 	c.Stop();
-	long int GameTime = c.Getcounttime()-1;
-	info.SetRGT(info.GetDGT()-GameTime);
-	info.SetTGT(info.GetTGT() + GameTime);
+	//long int GameTime = c.GetClockTime();
+	//info.SetRGT(info.GetDGT()-GameTime);
+	//info.SetTGT(info.GetTGT() + GameTime);
 }
 #endif // !_Bank_H_

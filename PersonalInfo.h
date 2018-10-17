@@ -1,11 +1,13 @@
 #ifndef _PersonalInfo_H_
 #define _PersonalInfo_H_
 
+#include<iostream>
 #include <vector>
 
 using namespace std;
 
-class PersonalInfo {
+class PersonalInfo 
+{
 public:
 	PersonalInfo() {    //初始化所有PersonalInfo的变量
 		DailyStudyTime = 0;
@@ -14,6 +16,7 @@ public:
 		TotalGameTime = 0;
 		Vault = 0;
 		DailyGameTime = 0;
+		DailyStudyTime = 0;
 		OnceStudyTime = 0;
 		OnceGameTime = 0;
 	}
