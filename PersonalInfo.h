@@ -3,6 +3,8 @@
 
 #include <vector>
 
+using namespace std;
+
 class PersonalInfo {
 public:
 	PersonalInfo() {    //初始化所有PersonalInfo的变量
@@ -12,11 +14,10 @@ public:
 		TotalGameTime = 0;
 		Vault = 0;
 		DailyGameTime = 0;
-		DailyStudyTime = 0;
 		OnceStudyTime = 0;
 		OnceGameTime = 0;
 	}
-	virtual ~PersonalInfo();
+	~PersonalInfo();
 
 	//初始化界面用到的成员函数
 	void InitDGT(long int dgt);
@@ -35,7 +36,6 @@ public:
 	void SetTST(long int time);
 	void SetTGT(long int time);
 	void SetDGT(long int time);
-	void SetDST(long int time);
 	void SetOST(long int time);
 	void SetOGT(long int time);
 	void SetVault(long int vault);
