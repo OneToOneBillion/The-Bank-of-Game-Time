@@ -1,5 +1,5 @@
-#ifndef  _COUTDOWN_H_
-#define  _COUTDOWN_H_
+#ifndef  _CLOCK_H_
+#define  _CLOCK_H_
 
 
 #include <iostream>
@@ -16,8 +16,18 @@ public:
 	{ return IsPause; }
 	bool GetIsStop()
 	{ return IsStop; }
+	void SetIsPause(bool m)
+	{IsPause = m;}
+	void SetIsStop(bool m)
+	{IsStop = m;}
+	int Gethour()
+	{return hour;}
+	int Getminute()
+	{	return minute;}
+	int Getsecond()
+	{return second;}
 	void set(int h, int m, int s);
-	void Start();
+	void Start(Clock m);
 	void Pause();
 	void Stop();
 	void show();
@@ -36,18 +46,52 @@ Clock::Clock()
 	IsStop = true;
 }
 
-void Clock::Start()
+void Clock::Start(Clock clock)
 {
-	if (IsStop)
+	if (clock.GetIsStop())
 	{
-		 
-		IsStop = false;
+		 clock.SetIsStop(false);
 	}
-	else if (IsPause)
+	 if (clock.GetIsPause())
 	{
-		IsPause = false;
-		 
+		 clock.SetIsPause(false);
 	}
+	while (!clock.GetIsStop())
+	{
+		if (!clock.GetIsPause())
+		{
+			//可以添加暂停操作...
+
+			clock.show();
+			Sleep(1000);
+			system("cls");
+			int s1 = clock.Getsecond() - 1;
+			clock.set(clock.Gethour(),clock.Getminute(),s1);
+			if (s1 == -1)
+			{
+				s1 = 59;
+				int m1=clock.Getminute()-1;
+				clock.set(clock.Gethour(), m1, s1);
+				if (m1== -1)
+				{
+					m1 = 59;
+					int h1=clock.Gethour()-1;
+					clock.set(h1, m1, s1);
+					if (h1== -1) //计时结束
+					{
+						clock.Stop();
+						cout << "time up!" << endl;
+						break;
+					}
+				}
+			}
+		}
+		else
+		{
+			//解除暂停操作
+		}
+	}
+	
 }
 
 
@@ -91,5 +135,3 @@ void Clock::show()
 }
 
 #endif
-
-
