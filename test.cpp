@@ -1,7 +1,7 @@
-#include"Bank.h"
 #include"Clock.h"
 #include"PersonalInfo.h"
 #include"Timer.h"
+#include"Bank.h"
 
 using namespace std;
 

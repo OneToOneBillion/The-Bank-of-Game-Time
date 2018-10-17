@@ -16,7 +16,7 @@ public:
 		OnceStudyTime = 0;
 		OnceGameTime = 0;
 	}
-	virtual ~PersonalInfo();
+	~PersonalInfo();
 
 	//初始化界面用到的成员函数
 	void InitDGT(long int dgt);

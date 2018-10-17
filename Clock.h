@@ -42,7 +42,6 @@ private:
 	long int StartTime;
 	long int PauseTime;
 	int hour, minute, second;
-	PersonalInfo info;
 };
 
 Clock::~Clock()
