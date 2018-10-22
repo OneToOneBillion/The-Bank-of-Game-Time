@@ -69,23 +69,24 @@ void Bank::StartStudy()
 void Bank::EndStudy()
 {
 	t.Stop();									
-	long int StudyTime=t.GetClickTime();		
+	long int StudyTime=t.GetClickTime();	
 	info->SetOST(StudyTime);			
 	info->SetDST(info->GetDST()+StudyTime);		
 	ExchangeTime();								
 	info->SetTST(info->GetTST() + StudyTime);		
-
 }
 
 void Bank::StartGame()
 {
-	c.Start(c);
+	c.SetDGT(info->GetDGT());
+	c.Start(test);
 }
 
 void Bank::EndGame()
 {
 	c.Stop();
 	long int GameTime = c.Getcounttime()-1;
+	cout << GameTime << endl;
 	info->SetRGT(info->GetDGT() - GameTime);
 	info->SetTGT(info->GetTGT() + GameTime);
 }
