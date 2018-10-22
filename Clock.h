@@ -39,7 +39,7 @@ public:
 		counttime = counttime1;
 	}
 	void set(int h, int m, int s);
-	void Start(Clock m);
+	void Start(Clock &m);
 
 	void Pause();
 	void Stop();
@@ -62,7 +62,7 @@ Clock::Clock()
 	IsStop = true;
 }
 
-void Clock::Start(Clock clock)
+void Clock::Start(Clock &clock)
 {
 	if (clock.GetIsStop())
 	{
