@@ -20,7 +20,9 @@ void main()
 	if (tag == 0)
 	{
 
-		countdown.Start(countdown);
+		Clock *p = &countdown;
+		countdown.Start(*p);
+		cout << countdown.Getcounttime() - 1;
 
 	}
 		system("pause");
