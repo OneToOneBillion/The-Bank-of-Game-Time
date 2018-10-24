@@ -79,7 +79,7 @@ void Bank::EndStudy()
 void Bank::StartGame()
 {
 	c.SetDGT(info->GetDGT());
-	c.Start(test);
+	c.Start(c);
 }
 
 void Bank::EndGame()
